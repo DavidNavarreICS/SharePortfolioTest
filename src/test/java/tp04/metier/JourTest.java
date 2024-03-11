@@ -46,7 +46,7 @@ public class JourTest {
     }
 
     //@Test
-    public void testConstructorDayIncorrectShouldFail() {
+    protected void testConstructorDayIncorrectShouldFail() {
         //Arrange
         final String expectedMessage = "0 must not be used as a valid Day";
         //Action and asserts
