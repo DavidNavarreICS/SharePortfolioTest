@@ -33,7 +33,7 @@ public class JourTest {
     }
 
     @Test
-    protected void testConstructorParametersAreCorrectSuccess() {
+    public void testConstructorParametersAreCorrectSuccess() {
         //Arrange
         final Jour jour = new Jour(DEFAULT_YEAR, DEFAULT_DAY);
 
@@ -46,7 +46,7 @@ public class JourTest {
     }
 
     //@Test
-    protected void testConstructorDayIncorrectShouldFail() {
+    public void testConstructorDayIncorrectShouldFail() {
         //Arrange
         final String expectedMessage = "0 must not be used as a valid Day";
         //Action and asserts
