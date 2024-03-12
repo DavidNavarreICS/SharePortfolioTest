@@ -33,7 +33,7 @@ public class JourTest {
     }
 
     @Test
-    public void testConstructorParametersAreCorrectSuccess() {
+    protected void testConstructorParametersAreCorrectSuccess() {
         //Arrange
         final Jour jour = new Jour(DEFAULT_YEAR, DEFAULT_DAY);
 
@@ -45,14 +45,14 @@ public class JourTest {
         Assertions.assertEquals(expectedToString, currentToString, "Basic construction");
     }
 
-    //@Test
+    @Test
     protected void testConstructorDayIncorrectShouldFail() {
         //Arrange
-        final String expectedMessage = "0 must not be used as a valid Day";
+        final String expectedMessage = "0 or less cannot be used as a valid Day";
         //Action and asserts
         IllegalArgumentException assertThrowsExactly = Assertions.assertThrowsExactly(IllegalArgumentException.class, () -> {
             new Jour(DEFAULT_YEAR, INCORRECT_DAY);
-        }, "0 must not be used as a valid Day");
+        }, "0 or less cannot be used as a valid Day");
         final String currentMessage = assertThrowsExactly.getMessage();
         Assertions.assertEquals(expectedMessage, currentMessage, "Expected error message");
 
