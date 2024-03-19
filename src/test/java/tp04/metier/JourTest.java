@@ -29,7 +29,7 @@ class JourTest {
     private static final int INCORRECT_DAY = 0;
     private static final int INCORRECT_YEAR = 0;
 
-    public JourTest() {
+    JourTest() {
     }
 
     @Test
