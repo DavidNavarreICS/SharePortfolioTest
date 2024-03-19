@@ -22,14 +22,14 @@ import org.junit.jupiter.api.Test;
  *
  * @author David Navarre &lt;David.Navarre at irit.fr&gt;
  */
-public class JourTest {
+class JourTest {
 
     private static final int DEFAULT_DAY = 1;
     private static final int DEFAULT_YEAR = 1;
     private static final int INCORRECT_DAY = 0;
     private static final int INCORRECT_YEAR = 0;
 
-    JourTest() {
+    public JourTest() {
     }
 
     @Test
@@ -58,7 +58,7 @@ public class JourTest {
     }
 
     @Test
-    protected void testConstructorYearIncorrectShouldFail() {
+    void testConstructorYearIncorrectShouldFail() {
         //Arrange
         final String expectedMessage = "0 or less cannot be used as a valid Year";
         //Action and asserts
@@ -70,7 +70,7 @@ public class JourTest {
     }
 
     @Test
-    protected void testConstructorParametersIncorrectShouldFail() {
+    void testConstructorParametersIncorrectShouldFail() {
         //Arrange
         final String expectedMessage = "0 or less cannot be used as a valid Day and/or Year";
         //Action and asserts
