@@ -33,6 +33,9 @@ public class Jour {
     }
 
     public Jour(int annee, int noJour) {
+        if (0 >= annee && 0 >= noJour) {
+            throw new IllegalArgumentException("0 or less cannot be used as a valid Day and/or Year");
+        }
         if (0 >= annee) {
             throw new IllegalArgumentException("0 or less cannot be used as a valid Year");
         }

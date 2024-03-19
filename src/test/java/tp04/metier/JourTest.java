@@ -29,11 +29,11 @@ public class JourTest {
     private static final int INCORRECT_DAY = 0;
     private static final int INCORRECT_YEAR = 0;
 
-    public JourTest() {
+    JourTest() {
     }
 
     @Test
-    protected void testConstructorParametersAreCorrectSuccess() {
+    void testConstructorParametersAreCorrectSuccess() {
         //Arrange
         final Jour jour = new Jour(DEFAULT_YEAR, DEFAULT_DAY);
 
@@ -46,7 +46,7 @@ public class JourTest {
     }
 
     @Test
-    protected void testConstructorDayIncorrectShouldFail() {
+    void testConstructorDayIncorrectShouldFail() {
         //Arrange
         final String expectedMessage = "0 or less cannot be used as a valid Day";
         //Action and asserts
@@ -55,6 +55,29 @@ public class JourTest {
         }, "0 or less cannot be used as a valid Day");
         final String currentMessage = assertThrowsExactly.getMessage();
         Assertions.assertEquals(expectedMessage, currentMessage, "Expected error message");
+    }
 
+    @Test
+    protected void testConstructorYearIncorrectShouldFail() {
+        //Arrange
+        final String expectedMessage = "0 or less cannot be used as a valid Year";
+        //Action and asserts
+        IllegalArgumentException assertThrowsExactly = Assertions.assertThrowsExactly(IllegalArgumentException.class, () -> {
+            new Jour(INCORRECT_YEAR, DEFAULT_DAY);
+        }, "0 or less cannot be used as a valid Year");
+        final String currentMessage = assertThrowsExactly.getMessage();
+        Assertions.assertEquals(expectedMessage, currentMessage, "Expected error message");
+    }
+
+    @Test
+    protected void testConstructorParametersIncorrectShouldFail() {
+        //Arrange
+        final String expectedMessage = "0 or less cannot be used as a valid Day and/or Year";
+        //Action and asserts
+        IllegalArgumentException assertThrowsExactly = Assertions.assertThrowsExactly(IllegalArgumentException.class, () -> {
+            new Jour(INCORRECT_YEAR, INCORRECT_DAY);
+        }, "0 or less cannot be used as a valid Day and/or Year");
+        final String currentMessage = assertThrowsExactly.getMessage();
+        Assertions.assertEquals(expectedMessage, currentMessage, "Expected error message");
     }
 }
